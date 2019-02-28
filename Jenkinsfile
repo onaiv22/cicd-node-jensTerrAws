@@ -21,10 +21,19 @@ pipeline {
                 sh 'terraform --version'
             }
         }
+        stage('cd into jenkins workspace for this project') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws'
+            }
+        }
+        stage('copy terraform tfvars from homedir to workspace') {
+            steps {
+                sh 'cp ~/terraform.tfvars /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws/'
+            }
+        }
         
         stage('terraform init') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws'
                 sh 'terraform init -input=false'
             }
         }
