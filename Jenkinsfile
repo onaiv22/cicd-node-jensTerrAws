@@ -24,6 +24,7 @@ pipeline {
         
         stage('terraform init') {
             steps {
+                sh 'cd /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws/'
                 sh 'terraform init -input=false'
             }
         }
