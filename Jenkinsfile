@@ -32,20 +32,6 @@ pipeline {
                 sh 'terraform plan -input=false -out=tfplan.out'
             }
         }
-        stage('approval') {
-            options {
-                timeout(time: 1, unit: 'HOURS')
-            }
-            steps {
-                input 'approve the plan and apply'
-            }
-        }
-        stage('terraform apply') {
-            steps{
-                sh 'terraform apply -auto-approve'
-                cleanWs()
-            }
-        }
 
     }
 }
