@@ -28,7 +28,7 @@ pipeline {
         }
         stage('copy terraform tfvars from homedir to workspace') {
             steps {
-                sh 'cp ~/terraform.tfvars /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws/'
+                sh 'cp /root/terraform.tfvars /var/lib/jenkins/workspace/jenkins-node-aws-terraform/terraform-jenkins-aws/'
             }
         }
         
