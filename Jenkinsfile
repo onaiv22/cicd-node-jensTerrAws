@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('git-checkout') {
             steps {
-                sh 'rm -rf *;git clone https://github.com/onaiv22/terraform-jenkins-aws.git'
+                sh 'sudo rm -rf *;git clone https://github.com/onaiv22/terraform-jenkins-aws.git'
             }
         }
         stage('output terraform version') {
